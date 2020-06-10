@@ -40,4 +40,28 @@ int main()
            current_time->tm_min+30,
            current_time->tm_sec);
         }
+         fflush(stdout);
+
+        current_time->tm_sec++;
+         if(current_time->tm_sec == 60){
+            current_time->tm_min+=1;
+            current_time->tm_sec=0;
+        }
+        if(current_time->tm_min == 60){
+            current_time->tm_hour+=1;
+            current_time->tm_min=0;
+        }
+        if(current_time->tm_hour == 18 && current_time->tm_min == 30){
+            current_time->tm_hour=0;
+            current_time->tm_min=0;
+            current_time->tm_sec=0;
+        } 
+
+        sleep(1);
+
+    }
+
+    return 0;
+}
+
        
